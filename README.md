@@ -20,14 +20,14 @@
 | simple\_banking/core/services/email/api/fake/impl.py         |        6 |        0 |        0 |        0 |    100.0% |           |
 | simple\_banking/core/services/email/client.py                |       14 |        2 |        0 |        0 |     85.7% |     25-26 |
 | simple\_banking/core/use\_cases/\_\_init\_\_.py              |        2 |        0 |        0 |        0 |    100.0% |           |
-| simple\_banking/core/use\_cases/register\_new\_client.py     |       42 |        9 |        6 |        2 |     72.9% |48-56, 82, 91 |
+| simple\_banking/core/use\_cases/register\_new\_client.py     |       42 |        2 |        6 |        2 |     91.7% |    81, 90 |
 | simple\_banking/database/\_\_init\_\_.py                     |        3 |        0 |        0 |        0 |    100.0% |           |
 | simple\_banking/database/base.py                             |       12 |        0 |        0 |        0 |    100.0% |           |
 | simple\_banking/database/file\_system/\_\_init\_\_.py        |        0 |        0 |        0 |        0 |    100.0% |           |
-| simple\_banking/database/file\_system/impl.py                |       41 |       27 |        6 |        0 |     29.8% |22-28, 34-36, 45-58, 62-84 |
+| simple\_banking/database/file\_system/impl.py                |       37 |       23 |        4 |        0 |     34.1% |22-28, 34-36, 44-52, 56-78 |
 | simple\_banking/database/in\_memory/\_\_init\_\_.py          |        0 |        0 |        0 |        0 |    100.0% |           |
-| simple\_banking/database/in\_memory/impl.py                  |       22 |        3 |        2 |        1 |     83.3% |     44-46 |
-|                                                    **TOTAL** |  **212** |   **73** |   **22** |    **3** | **62.4%** |           |
+| simple\_banking/database/in\_memory/impl.py                  |       18 |        0 |        0 |        0 |    100.0% |           |
+|                                                    **TOTAL** |  **204** |   **59** |   **18** |    **2** | **68.9%** |           |
 
 
 ## Setup coverage badge

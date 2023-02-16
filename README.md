@@ -5,8 +5,13 @@
 | Name                                                         |    Stmts |     Miss |   Branch |   BrPart |     Cover |   Missing |
 |------------------------------------------------------------- | -------: | -------: | -------: | -------: | --------: | --------: |
 | simple\_banking/\_\_init\_\_.py                              |        0 |        0 |        0 |        0 |    100.0% |           |
+| simple\_banking/api/\_\_init\_\_.py                          |        0 |        0 |        0 |        0 |    100.0% |           |
+| simple\_banking/api/\_\_main\_\_.py                          |        2 |        2 |        0 |        0 |      0.0% |       2-4 |
+| simple\_banking/api/app.py                                   |       23 |       23 |        4 |        0 |      0.0% |      2-45 |
+| simple\_banking/api/models/\_\_init\_\_.py                   |        0 |        0 |        0 |        0 |    100.0% |           |
+| simple\_banking/api/models/register\_new\_client.py          |        8 |        8 |        0 |        0 |      0.0% |      2-14 |
 | simple\_banking/cli/\_\_init\_\_.py                          |        1 |        1 |        0 |        0 |      0.0% |         1 |
-| simple\_banking/cli/main.py                                  |       30 |       30 |        4 |        0 |      0.0% |      3-56 |
+| simple\_banking/cli/main.py                                  |       32 |       32 |        4 |        0 |      0.0% |      3-59 |
 | simple\_banking/core/\_\_init\_\_.py                         |        0 |        0 |        0 |        0 |    100.0% |           |
 | simple\_banking/core/exceptions.py                           |        3 |        1 |        0 |        0 |     66.7% |         9 |
 | simple\_banking/core/models/\_\_init\_\_.py                  |        3 |        0 |        0 |        0 |    100.0% |           |
@@ -27,7 +32,7 @@
 | simple\_banking/database/file\_system/impl.py                |       37 |       23 |        4 |        0 |     34.1% |22-28, 34-36, 44-52, 56-78 |
 | simple\_banking/database/in\_memory/\_\_init\_\_.py          |        0 |        0 |        0 |        0 |    100.0% |           |
 | simple\_banking/database/in\_memory/impl.py                  |       18 |        0 |        0 |        0 |    100.0% |           |
-|                                                    **TOTAL** |  **204** |   **59** |   **18** |    **2** | **68.9%** |           |
+|                                                    **TOTAL** |  **239** |   **94** |   **22** |    **2** | **58.6%** |           |
 
 
 ## Setup coverage badge

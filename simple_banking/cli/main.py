@@ -34,6 +34,7 @@ def register_new_user(
     password: str,
     birthday_date: datetime.date,
 ) -> None:
+    """Register a new client in the application."""
     register_new_client = RegisterNewClient(
         email=email,
         name=name,

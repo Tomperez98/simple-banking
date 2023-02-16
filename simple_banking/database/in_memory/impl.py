@@ -1,5 +1,4 @@
 """InMemory implemenation for the application repository."""
-import uuid
 from typing import Union
 
 from result import Ok, Result
@@ -19,7 +18,7 @@ class InMemoryRepository(IRepository):
     def __init__(  # noqa: D107
         self,
     ) -> None:
-        self.clients: dict[uuid.UUID, Client] = {}
+        self.clients: dict[str, Client] = {}
 
     def commit_write_transaction(
         self, write_operations: UseCaseRegistry[str]
@@ -40,8 +39,8 @@ class InMemoryRepository(IRepository):
             write_operations.add_value(
                 v=f"create client with ID {new_client.client_id}"
             )
-            self.clients[new_client.client_id] = new_client
+            self.clients[new_client.email] = new_client
             return
         write_operations.add_value(v=f"update client with ID {new_client.client_id}")
-        self.clients[new_client.client_id] = new_client
+        self.clients[new_client.email] = new_client
         return

@@ -18,8 +18,11 @@ class FileSystemRepository(IRepository):
         self,
     ) -> None:
         self.cwd = pathlib.Path().cwd()
-        self.path_clients = self.cwd / "file_system_db" / "clients.json"
 
+        self.path_db = self.cwd / "file_system_db"
+        self.path_db.mkdir(parents=True, exist_ok=True)
+
+        self.path_clients = self.path_db / "client.json"
         self.path_clients.touch(exist_ok=True)
 
     def commit_write_transaction(
@@ -41,9 +44,13 @@ class FileSystemRepository(IRepository):
             write_operations.add_value(
                 v=f"create client with ID {new_client.client_id}"
             )
-            clients_as_dict = orjson.loads(self.path_clients.read_text())
-            clients_as_dict[new_client.client_id] = new_client
+            if self.path_clients.read_text() == "":
+                clients_as_dict = {}
+            else:
+                clients_as_dict = orjson.loads(self.path_clients.read_text())
+            clients_as_dict[str(new_client.email)] = new_client
+            self.path_clients.write_bytes(data=orjson.dumps(clients_as_dict))
         write_operations.add_value(v=f"update client with ID {new_client.client_id}")
         clients_as_dict = orjson.loads(self.path_clients.read_text())
-        clients_as_dict[new_client.client_id] = new_client
+        clients_as_dict[str(new_client.email)] = new_client
         return

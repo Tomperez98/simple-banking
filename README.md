@@ -2,8 +2,7 @@
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff)
 [![Build Status](https://github.com/Tomperez98/simple-banking/workflows/test/badge.svg?branch=main&event=push)](https://github.com/Tomperez98/simple-banking/actions?query=workflow%3Atest)
-[![Coverage badge](https://github.com/Tomperez98/simple-banking/raw/python-coverage-comment-action-data/badge.svg)](https://github.com/Tomperez98/simple-banking/tree/python-coverage-comment-action-data)
-
+[![Coverage badge](https://raw.githubusercontent.com/Tomperez98/simple-banking/python-coverage-comment-action-data/badge.svg)](https://htmlpreview.github.io/?https://github.com/Tomperez98/simple-banking/blob/python-coverage-comment-action-data/htmlcov/index.html)
 
 
 -----

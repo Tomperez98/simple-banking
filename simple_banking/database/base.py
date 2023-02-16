@@ -26,3 +26,7 @@ class IRepository(abc.ABC):
         write_operations: UseCaseRegistry[Any],
     ) -> None:
         """Insert/Upsert client in the application persistance layer."""
+
+    @abc.abstractmethod
+    def get_client(self, email: str) -> Result[Union[Client, None], Exception]:
+        """Get a client from the application database."""

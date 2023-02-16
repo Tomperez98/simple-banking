@@ -3,8 +3,8 @@
 
 import inject
 
-from simple_banking import database
 from simple_banking.core.services import email
+from simple_banking.database import config
 
 
 def dependency_injection(binder: inject.Binder) -> None:
@@ -12,5 +12,5 @@ def dependency_injection(binder: inject.Binder) -> None:
     binder.install(
         config=email.config.dependency_injection,
     ).install(
-        config=database.config.dependency_injection,
+        config=config.dependency_injection,
     )

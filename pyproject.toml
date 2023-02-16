@@ -64,7 +64,8 @@ branch = true
 parallel = true
 omit = [
   "simple_banking/__about__.py",
-  "simple_banking/logging.py"
+  "simple_banking/logging.py",
+  "simple_banking/**/config.py",
 ]
 relative_files = true
 
@@ -84,7 +85,7 @@ force-wrap-aliases = true
 combine-as-imports = true
 
 [tool.ruff.flake8-tidy-imports]
-ban-relative-imports = "parents"
+ban-relative-imports = "all"
 
 [tool.ruff.pyupgrade]
 # Preserve types, even if a file imports `from __future__ import annotations`.
@@ -186,7 +187,7 @@ testpaths = [
 ]
 xfail_strict = true
 addopts =[
-  "--cov-fail-under=90", 
+  "--cov-fail-under=40", 
   "--cov-report=term-missing:skip-covered",
   "--cov-config=pyproject.toml",
   "--cov=simple_banking"

@@ -44,3 +44,7 @@ class InMemoryRepository(IRepository):
         write_operations.add_value(v=f"update client with ID {new_client.client_id}")
         self.clients[new_client.email] = new_client
         return
+
+    def get_client(self, email: str) -> Result[Union[Client, None], Exception]:
+        """Mock retrieve clien from the applicationd application database."""
+        return Ok(self.clients.get(email, None))

@@ -1,7 +1,7 @@
-from . import config
+from simple_banking.database.file_system.impl import FileSystemRepository
+from simple_banking.database.in_memory.impl import InMemoryRepository
 
 __all__ = [
-    "config",
     "FileSystemRepository",
     "InMemoryRepository",
 ]

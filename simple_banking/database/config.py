@@ -2,8 +2,8 @@
 
 import inject
 
+from simple_banking.database import InMemoryRepository
 from simple_banking.database.base import IRepository
-from simple_banking.database.in_memory import InMemoryRepository
 
 
 def dependency_injection(binder: inject.Binder) -> None:

@@ -4,11 +4,12 @@ import datetime
 import uuid
 from typing import Any
 
+import pytest
 from use_case_registry import UseCaseRegistry
 from use_case_registry.errors import CommandInputValidationError
+
 from simple_banking.core.models import Client
 from simple_banking.core.use_cases.register_new_client import RegisterNewClient
-import pytest
 
 
 class TestRegisterNewClient:

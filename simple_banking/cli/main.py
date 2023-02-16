@@ -54,3 +54,6 @@ def register_new_user(
     if success_err is not None:
         click.echo(message="Something went wrong.")
         sys.exit(1)
+
+    click.echo(message="New client has been registered.")
+    sys.exit(0)

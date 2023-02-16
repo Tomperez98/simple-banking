@@ -28,6 +28,10 @@ sync-to-env: ## sync dev virtualenv
 	@pip-sync requirements/$(env).txt
 	@pip install -e .
 
+.PHONY: rest-api
+rest-api: ## Run RestAPI.
+	python -m simple_banking.api
+
 .PHONY: lint
 lint: ## Lint code.
 	mypy $(sources)

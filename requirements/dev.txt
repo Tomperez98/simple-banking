@@ -5,7 +5,10 @@
 #    pip-compile --extra=dev --no-emit-trusted-host --output-file=requirements/dev.txt --resolver=backtracking pyproject.toml
 #
 anyio==3.6.2
-    # via httpcore
+    # via
+    #   httpcore
+    #   starlette
+    #   watchfiles
 attrs==22.2.0
     # via pytest
 black==23.1.0
@@ -25,36 +28,53 @@ click==8.1.3
     #   hatch
     #   mkdocs
     #   pip-tools
+    #   simple_banking (pyproject.toml)
     #   userpath
+    #   uvicorn
 colorama==0.4.6
     # via mkdocs-material
 coverage[toml]==7.1.0
     # via pytest-cov
 distlib==0.3.6
     # via virtualenv
+dnspython==2.3.0
+    # via email-validator
 editables==0.3
     # via hatchling
+email-validator==1.3.1
+    # via
+    #   fastapi
+    #   simple_banking (pyproject.toml)
 exceptiongroup==1.1.0
     # via pytest
+fastapi[all]==0.92.0
+    # via simple_banking (pyproject.toml)
 filelock==3.9.0
     # via virtualenv
 ghp-import==2.1.0
     # via mkdocs
 h11==0.14.0
-    # via httpcore
+    # via
+    #   httpcore
+    #   uvicorn
 hatch==1.6.3
     # via simple_banking (pyproject.toml)
 hatchling==1.13.0
     # via hatch
 httpcore==0.16.3
     # via httpx
+httptools==0.5.0
+    # via uvicorn
 httpx==0.23.3
-    # via hatch
+    # via
+    #   fastapi
+    #   hatch
 hyperlink==21.0.0
     # via hatch
 idna==3.4
     # via
     #   anyio
+    #   email-validator
     #   hyperlink
     #   requests
     #   rfc3986
@@ -62,10 +82,15 @@ importlib-metadata==6.0.0
     # via keyring
 iniconfig==2.0.0
     # via pytest
+inject==4.3.1
+    # via simple_banking (pyproject.toml)
+itsdangerous==2.1.2
+    # via fastapi
 jaraco-classes==3.2.3
     # via keyring
 jinja2==3.1.2
     # via
+    #   fastapi
     #   mkdocs
     #   mkdocs-material
 keyring==23.13.1
@@ -100,7 +125,9 @@ mypy-extensions==1.0.0
     #   black
     #   mypy
 orjson==3.8.6
-    # via simple_banking (pyproject.toml)
+    # via
+    #   fastapi
+    #   simple_banking (pyproject.toml)
 packaging==23.0
     # via
     #   black
@@ -126,8 +153,12 @@ pluggy==1.0.0
     # via
     #   hatchling
     #   pytest
+polars==0.16.5
+    # via simple_banking (pyproject.toml)
 ptyprocess==0.7.0
     # via pexpect
+pydantic==1.10.5
+    # via fastapi
 pygments==2.14.0
     # via
     #   mkdocs-material
@@ -147,11 +178,17 @@ pytest-cov==4.0.0
 python-dateutil==2.8.2
     # via ghp-import
 python-dotenv==0.21.1
-    # via simple_banking (pyproject.toml)
+    # via
+    #   simple_banking (pyproject.toml)
+    #   uvicorn
+python-multipart==0.0.5
+    # via fastapi
 pyyaml==6.0
     # via
+    #   fastapi
     #   mkdocs
     #   pyyaml-env-tag
+    #   uvicorn
 pyyaml-env-tag==0.1
     # via mkdocs
 regex==2022.10.31
@@ -169,12 +206,16 @@ ruff==0.0.247
 shellingham==1.5.0.post1
     # via hatch
 six==1.16.0
-    # via python-dateutil
+    # via
+    #   python-dateutil
+    #   python-multipart
 sniffio==1.3.0
     # via
     #   anyio
     #   httpcore
     #   httpx
+starlette==0.25.0
+    # via fastapi
 tomli==2.0.1
     # via
     #   black
@@ -189,17 +230,30 @@ tomli-w==1.0.0
 tomlkit==0.11.6
     # via hatch
 typing-extensions==4.5.0
-    # via mypy
+    # via
+    #   mypy
+    #   polars
+    #   pydantic
+ujson==5.7.0
+    # via fastapi
 urllib3==1.26.14
     # via requests
 use-case-registry==1.1.0
     # via simple_banking (pyproject.toml)
 userpath==1.8.0
     # via hatch
+uvicorn[standard]==0.20.0
+    # via fastapi
+uvloop==0.17.0
+    # via uvicorn
 virtualenv==20.19.0
     # via hatch
 watchdog==2.2.1
     # via mkdocs
+watchfiles==0.18.1
+    # via uvicorn
+websockets==10.4
+    # via uvicorn
 wheel==0.38.4
     # via pip-tools
 zipp==3.13.0

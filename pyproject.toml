@@ -24,7 +24,13 @@ classifiers = [
 dependencies = [
   "orjson",
   "use-case-registry",
-  "loguru"
+  "loguru",
+  "polars",
+  "click",
+  "fastapi[all]",
+  "python-dotenv",
+  "email-validator",
+  "inject",
 ]
 dynamic = ["version"]
 
@@ -38,8 +44,7 @@ dev = [
   "pip-tools",
   "hatch",
   "mypy",
-  "mkdocs-material",
-  "python-dotenv"
+  "mkdocs-material"
 ]
 
 [project.urls]
@@ -89,6 +94,7 @@ ignore = [
   "ANN101", # Missing type annotation for `self` in method
   "D203", # 1 blank line required before class docstring
   "D212", # Multi-line docstring summary should start at the first line
+  "PLR0913" # Too many arguments to function call ({c_args}/{max_args})
 ]
 
 select = [

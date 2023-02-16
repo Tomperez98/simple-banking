@@ -82,3 +82,6 @@ site/
 
 # pyenv
 .python-version
+
+# file-system db
+file_system_db/

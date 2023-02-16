@@ -35,7 +35,7 @@ class FileSystemRepository(IRepository):
         write_operations.prune_state()
         return Ok()
 
-    def upsert_client(
+    def insert_client(
         self,
         new_client: Client,
         write_operations: UseCaseRegistry[str],

@@ -60,6 +60,7 @@ clean: ## Cleans project folder mainly cache
 	@rm -f coverage.xml
 	@rm -rf build
 	@find $(sources) -empty -type d -delete
+	@rm -rf file_system_db
 
 .PHONY: serve-docs
 serve-docs: ## Serve project documentation

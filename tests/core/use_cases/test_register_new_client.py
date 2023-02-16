@@ -5,13 +5,50 @@ import uuid
 from typing import Any
 
 from use_case_registry import UseCaseRegistry
-
+from use_case_registry.errors import CommandInputValidationError
 from simple_banking.core.models import Client
 from simple_banking.core.use_cases.register_new_client import RegisterNewClient
+import pytest
 
 
 class TestRegisterNewClient:
     """Set of test definitions around the RegisterNewClient use case."""
+
+    def test_input_validation_pass(self) -> None:
+        """Test use case inputs pass."""
+        register_new_client = RegisterNewClient(
+            email="name.last_name@factored.ai",
+            name="Peter",
+            last_name="Parker",
+            password="123",  # noqa: S106
+            birthday_date=datetime.date(year=2000, month=1, day=1),
+        )
+        register_new_client.validate().unwrap()
+
+    @pytest.mark.parametrize(
+        argnames="inputs",
+        argvalues=[
+            {
+                "email": "not_an_email",
+                "name": "Peter",
+                "last_name": "Parker",
+                "password": 123,
+                "birthday_date": datetime.date(year=2000, month=1, day=1),
+            },
+            {
+                "email": "name.last_name@factored.ai",
+                "name": "Peter123",
+                "last_name": "Parker@",
+                "password": 123,
+                "birthday_date": datetime.date(year=2000, month=1, day=1),
+            },
+        ],
+    )
+    def test_input_validation_not_pass(self, inputs: dict[str, Any]) -> None:
+        """Test use case inputs fail to pass."""
+        register_new_client = RegisterNewClient(**inputs)
+        err = register_new_client.validate().err()
+        assert isinstance(err, CommandInputValidationError)
 
     def test_register_a_new_client(self) -> None:
         """Test register a new client when does not exists in the application."""
@@ -51,8 +88,7 @@ class TestRegisterNewClient:
             birthday_date=datetime.date(year=2000, month=1, day=1),
         )
         write_operations = UseCaseRegistry[Any](max_length=10)
-        register_new_client.repository.upsert_client(
-            prev_client=None,
+        register_new_client.repository.insert_client(
             new_client=Client(
                 client_id=uuid.uuid4(),
                 email="existing_email",

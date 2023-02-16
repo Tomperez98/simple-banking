@@ -37,24 +37,18 @@ class FileSystemRepository(IRepository):
 
     def upsert_client(
         self,
-        prev_client: Union[Client, None],
         new_client: Client,
         write_operations: UseCaseRegistry[str],
     ) -> None:
-        """Upsert client write transaction into the persistance layer."""
-        if prev_client is None:
-            write_operations.add_value(
-                v=f"create client with ID {new_client.client_id}"
-            )
-            if self.path_clients.read_text() == "":
-                clients_as_dict = {}
-            else:
-                clients_as_dict = orjson.loads(self.path_clients.read_text())
-            clients_as_dict[new_client.email] = new_client
-            self.path_clients.write_bytes(data=orjson.dumps(clients_as_dict))
-        write_operations.add_value(v=f"update client with ID {new_client.client_id}")
-        clients_as_dict = orjson.loads(self.path_clients.read_text())
+        """Insert client write transaction into the persistance layer."""
+        write_operations.add_value(v=f"create client with ID {new_client.client_id}")
+        if self.path_clients.read_text() == "":
+            clients_as_dict = {}
+        else:
+            clients_as_dict = orjson.loads(self.path_clients.read_text())
         clients_as_dict[new_client.email] = new_client
+        self.path_clients.write_bytes(data=orjson.dumps(clients_as_dict))
+
         return
 
     def get_client(self, email: str) -> Result[Union[Client, None], Exception]:

@@ -50,7 +50,7 @@ class RegisterNewClient(ICommand):
         except EmailNotValidError:
             return Err(CommandInputValidationError())
 
-        if not self.name.isascii() and not self.last_name.isascii():
+        if not self.name.isalpha() and not self.last_name.isalpha():
             return Err(CommandInputValidationError())
 
         return Ok()
@@ -68,8 +68,7 @@ class RegisterNewClient(ICommand):
             birthday_date=self.birthday_date,
         )
 
-        self.repository.upsert_client(
-            prev_client=None,
+        self.repository.insert_client(
             new_client=client,
             write_operations=write_ops_registry,
         )

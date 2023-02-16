@@ -28,20 +28,13 @@ class InMemoryRepository(IRepository):
         write_operations.prune_state()
         return Ok()
 
-    def upsert_client(
+    def insert_client(
         self,
-        prev_client: Union[Client, None],
         new_client: Client,
         write_operations: UseCaseRegistry[str],
     ) -> None:
-        """Mock upsert client write transaction into the persistance layer."""
-        if prev_client is None:
-            write_operations.add_value(
-                v=f"create client with ID {new_client.client_id}"
-            )
-            self.clients[new_client.email] = new_client
-            return
-        write_operations.add_value(v=f"update client with ID {new_client.client_id}")
+        """Mock insert client write transaction into the persistance layer."""
+        write_operations.add_value(v=f"create client with ID {new_client.client_id}")
         self.clients[new_client.email] = new_client
         return
 

@@ -19,13 +19,12 @@ class IRepository(abc.ABC):
         """Commit a set of write operations as a transaction."""
 
     @abc.abstractmethod
-    def upsert_client(
+    def insert_client(
         self,
-        prev_client: Union[Client, None],
         new_client: Client,
-        write_operations: UseCaseRegistry[Any],
+        write_operations: UseCaseRegistry[str],
     ) -> None:
-        """Insert/Upsert client in the application persistance layer."""
+        """Insert client in the application persistance layer."""
 
     @abc.abstractmethod
     def get_client(self, email: str) -> Result[Union[Client, None], Exception]:
